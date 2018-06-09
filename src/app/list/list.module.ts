@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
+import { ListRoutes } from './list.routing';
 import { ListComponent } from './pages/list/list.component';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [SharedModule, RouterModule.forChild(ListRoutes)],
   declarations: [ListComponent]
 })
-export class ListModule { }
+export class ListModule {}

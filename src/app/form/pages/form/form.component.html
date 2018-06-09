@@ -1,3 +1,12 @@
-<p>
-  form works!
-</p>
+<p-card>
+  <h2>Form</h2>
+  <form [formGroup]="form" (submit)="save()">
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <label>Name</label>
+        <input type="text" formControlName="name" pInputText />
+      </div>
+    </div>
+    <button pButton type="submit" label="Save" class="ui-button-success"></button>
+  </form>
+</p-card>

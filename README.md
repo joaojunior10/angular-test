@@ -1,6 +1,6 @@
 # AngularTest
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
+Exemple project for unit testing using Angular, Jest, Protractor and PrimeNG 
 
 ## Development server
 

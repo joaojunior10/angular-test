@@ -1,4 +1,5 @@
 import { AppPage } from './app.po';
+import { browser, protractor } from 'protractor';
 
 describe('angular-test App', () => {
   let page: AppPage;
@@ -10,5 +11,15 @@ describe('angular-test App', () => {
   it('should display welcome message', () => {
     page.navigateTo();
     expect(page.getParagraphText()).toEqual('Angular Tests');
+  });
+
+  it('navigate to "" redirects you to /form', () => {
+    const expectedCondititons = protractor.ExpectedConditions;
+    page.navigateTo();
+    browser.wait(
+      expectedCondititons.urlContains(browser.baseUrl + '/form'),
+      1000
+    );
+    expect(browser.getCurrentUrl()).toBe(browser.baseUrl + '/form');
   });
 });

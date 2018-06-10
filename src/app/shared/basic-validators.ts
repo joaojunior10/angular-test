@@ -1,7 +1,7 @@
-import { FormControl } from '@angular/forms';
+import { FormControl, ValidatorFn, AbstractControl } from '@angular/forms';
 
 export class BasicValidators {
-  static required(control: FormControl): any {
+  static required(control: FormControl): { [key: string]: string } | null {
     if (control.value == null) {
       return { invalid: 'Campo obrigatório' };
     }

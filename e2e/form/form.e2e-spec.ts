@@ -8,11 +8,18 @@ describe('angular-test Form', () => {
     page = new FormPage();
   });
 
-  it('should send a name', () => {
+  it('should complete the form and save', () => {
     const expectedCondititons = protractor.ExpectedConditions;
     page.navigateTo();
     const name = element(by.formControlName('name'));
     name.sendKeys('João Francisco');
+    const genders = element(by.formControlName('gender'));
+    genders.click();
+    const gender = element(by.cssContainingText('li > span', 'Male'));
+    gender.click();
+    browser.pause();
+    const activated = element(by.formControlName('name'));
+    activated.click();
     page.save().then(() => {
       browser.wait(
         expectedCondititons.urlContains(browser.baseUrl + '/list'),
@@ -21,4 +28,6 @@ describe('angular-test Form', () => {
       expect(browser.getCurrentUrl()).toBe(browser.baseUrl + '/list');
     });
   });
+
+
 });

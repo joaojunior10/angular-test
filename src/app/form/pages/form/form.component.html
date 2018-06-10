@@ -5,8 +5,18 @@
       <div class="ui-g-12">
         <label>Name</label>
         <input type="text" formControlName="name" pInputText />
+        <small class="text-danger">{{getError('name')}}</small>
       </div>
+      <div class="ui-g-12">
+        <label>Gender</label>
+        <p-dropdown [options]="genders" placeholder="Selecione" formControlName="gender"></p-dropdown>
+        <small class="text-danger">{{getError('gender')}}</small>
+      </div>
+      <div class="ui-g-12">
+        <p-checkbox binary="true" label="Activated" formControlName="activated"></p-checkbox>
+        <small class="text-danger">{{getError('activated')}}</small>
+      </div>
+      <button pButton type="submit" label="Save" class="ui-button-success"></button>
     </div>
-    <button pButton type="submit" label="Save" class="ui-button-success"></button>
   </form>
 </p-card>

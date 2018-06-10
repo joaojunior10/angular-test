@@ -17,7 +17,6 @@ describe('angular-test Form', () => {
     genders.click();
     const gender = element(by.cssContainingText('li > span', 'Male'));
     gender.click();
-    browser.pause();
     const activated = element(by.formControlName('name'));
     activated.click();
     page.save().then(() => {

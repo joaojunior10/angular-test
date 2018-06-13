@@ -1,20 +1,25 @@
-import { Gender } from './../../shared/gender.enum';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
+import { FormService } from './../../service/form.service';
+import { Gender } from './../../shared/gender.enum';
 import { FormComponent } from './form.component';
+import { createSpyObj } from '../../../testing/util';
+import { of } from 'rxjs/observable/of';
 
 describe('FormComponent', () => {
   let component: FormComponent;
   let fixture: ComponentFixture<FormComponent>;
+  const formService = createSpyObj(FormService, ['create']);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, HttpClientTestingModule],
       declarations: [FormComponent],
       schemas: [NO_ERRORS_SCHEMA],
-      providers: [FormBuilder]
+      providers: [FormBuilder, { provide: FormService, useValue: formService }]
     }).compileComponents();
   }));
 
@@ -34,7 +39,7 @@ describe('FormComponent', () => {
     expect(name.invalid).toBeTruthy();
     name.setValue('');
     expect(name.invalid).toBeTruthy();
-    name.setValue('name');
+    name.setValue('João Gonçalves');
     expect(name.valid).toBeTruthy();
   });
 
@@ -64,5 +69,34 @@ describe('FormComponent', () => {
     expect(activated.valid).toBeTruthy();
     activated.setValue(true);
     expect(activated.valid).toBeTruthy();
+  });
+
+  it('should create the from', () => {
+    const form = component.form;
+    form.patchValue({
+      name: 'João Gonçalves',
+      gender: Gender.Male,
+      activated: true
+    });
+    expect(form.valid).toBeTruthy();
+    expect(form.value).toEqual({
+      _id: null,
+      name: 'João Gonçalves',
+      gender: Gender.Male,
+      activated: true
+    });
+    formService.create.mockImplementation(() => {
+      console.log('mock biatch');
+      return of({
+        _id: 1,
+        name: 'João Gonçalves',
+        gender: Gender.Male,
+        activated: true
+      });
+    });
+
+    component.save();
+    expect(formService.create).toBeCalled();
+    expect(form.value._id).toEqual(1);
   });
 });

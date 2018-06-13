@@ -29,19 +29,24 @@ export class FormComponent implements OnInit {
   }
 
   save() {
-    console.log(this.form);
     if (this.form.valid) {
-      this.formService.save().subscribe(
+      const person = this.form.value;
+      this.formService.create(person).subscribe(
         res => {
-          this.router.navigate(['/list']);
+          console.log(res);
+          this.form.setValue(res);
+          // this.router.navigate(['/list']);
         },
-        err => {}
+        err => {
+          console.log(err);
+        }
       );
     }
   }
 
   private setForm() {
     this.form = this.formBuilder.group({
+      _id: [null],
       name: [null, BasicValidators.required],
       gender: [
         null,
@@ -50,7 +55,6 @@ export class FormComponent implements OnInit {
       activated: [false, BasicValidators.required]
     });
     this.form = new FormGroup(this.form.controls, { updateOn: 'change' });
-    console.log(this.form);
   }
 
   getError(name) {

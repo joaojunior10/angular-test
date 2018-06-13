@@ -17,9 +17,10 @@ describe('angular-test Form', () => {
     genders.click();
     const gender = element(by.cssContainingText('li > span', 'Male'));
     gender.click();
-    const activated = element(by.formControlName('name'));
+    const activated = element(by.formControlName('activated'));
     activated.click();
     page.save().then(() => {
+      browser.pause();
       browser.wait(
         expectedCondititons.urlContains(browser.baseUrl + '/list'),
         5000
@@ -27,6 +28,4 @@ describe('angular-test Form', () => {
       expect(browser.getCurrentUrl()).toBe(browser.baseUrl + '/list');
     });
   });
-
-
 });

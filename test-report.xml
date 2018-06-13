@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
   <file path="/Users/Joao/Programs/angular-test/src/app/form/pages/form/form.component.spec.ts">
-    <testCase name="FormComponent should create" duration="202"/>
-    <testCase name="FormComponent name should be required" duration="69"/>
-    <testCase name="FormComponent gender should be required" duration="58"/>
-    <testCase name="FormComponent gender should be of enum Gender" duration="75"/>
-    <testCase name="FormComponent activated should be required" duration="47"/>
-  </file>
-  <file path="/Users/Joao/Programs/angular-test/src/app/app.component.spec.ts">
-    <testCase name="AppComponent should create the app" duration="72"/>
-  </file>
-  <file path="/Users/Joao/Programs/angular-test/src/app/form/service/form.service.spec.ts">
-    <testCase name="FormService should be created" duration="45"/>
+    <testCase name="FormComponent should create" duration="175"/>
+    <testCase name="FormComponent name should be required" duration="64"/>
+    <testCase name="FormComponent gender should be required" duration="69"/>
+    <testCase name="FormComponent gender should be of enum Gender" duration="47"/>
+    <testCase name="FormComponent activated should be required" duration="50"/>
+    <testCase name="FormComponent should create the from" duration="64"/>
   </file>
   <file path="/Users/Joao/Programs/angular-test/src/app/list/pages/list/list.component.spec.ts">
-    <testCase name="ListComponent should create" duration="61"/>
+    <testCase name="ListComponent should create" duration="57"/>
+  </file>
+  <file path="/Users/Joao/Programs/angular-test/src/app/app.component.spec.ts">
+    <testCase name="AppComponent should create the app" duration="64"/>
+  </file>
+  <file path="/Users/Joao/Programs/angular-test/src/app/form/service/form.service.spec.ts">
+    <testCase name="FormService should be created" duration="32"/>
   </file>
   <file path="/Users/Joao/Programs/angular-test/src/app/shared/basic-validators.spec.ts">
     <testCase name="BasicValidators required should return null if the control is not empty" duration="2"/>
-    <testCase name="BasicValidators required should return null if the control is false" duration="0"/>
+    <testCase name="BasicValidators required should return null if the control is false" duration="1"/>
     <testCase name="BasicValidators required should return null if the control is 0" duration="1"/>
-    <testCase name="BasicValidators required should return invalid if the control is null" duration="2"/>
-    <testCase name="BasicValidators required should return invalid if the control is empty" duration="0"/>
+    <testCase name="BasicValidators required should return invalid if the control is null" duration="0"/>
+    <testCase name="BasicValidators required should return invalid if the control is empty" duration="1"/>
   </file>
 </testExecutions>

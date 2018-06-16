@@ -1,14 +1,14 @@
 import { by, element, browser, protractor } from 'protractor';
-import { FormPage } from './form.po';
+import { UserPage } from './user-detail.po';
 
-describe('angular-test Form', () => {
-  let page: FormPage;
+describe('angular-test User', () => {
+  let page: UserPage;
 
   beforeEach(() => {
-    page = new FormPage();
+    page = new UserPage();
   });
 
-  it('should complete the form and save', () => {
+  it('should create a user', () => {
     const expectedCondititons = protractor.ExpectedConditions;
     page.navigateTo();
     const name = element(by.formControlName('name'));
@@ -20,7 +20,6 @@ describe('angular-test Form', () => {
     const activated = element(by.formControlName('activated'));
     activated.click();
     page.save().then(() => {
-      browser.pause();
       browser.wait(
         expectedCondititons.urlContains(browser.baseUrl + '/list'),
         5000

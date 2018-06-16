@@ -1,30 +1,36 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-import { FormService } from './../../service/form.service';
-import { Gender } from './../../shared/gender.enum';
-import { FormComponent } from './form.component';
-import { createSpyObj } from '../../../testing/util';
+import { createSpyObj, router } from '@testing/util';
 import { of } from 'rxjs/observable/of';
+import { UserService } from '../../services/user.service';
+import { Gender } from '../../shared/gender.enum';
+import { UserDetailComponent } from './user-detail.component';
+import { Router } from '@angular/router';
 
-describe('FormComponent', () => {
-  let component: FormComponent;
-  let fixture: ComponentFixture<FormComponent>;
-  const formService = createSpyObj(FormService, ['create']);
+describe('UserDetailComponent', () => {
+  let component: UserDetailComponent;
+  let fixture: ComponentFixture<UserDetailComponent>;
+  const userService = createSpyObj(UserService, ['create']);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, HttpClientTestingModule],
-      declarations: [FormComponent],
+      imports: [RouterTestingModule],
+      declarations: [UserDetailComponent],
       schemas: [NO_ERRORS_SCHEMA],
-      providers: [FormBuilder, { provide: FormService, useValue: formService }]
-    }).compileComponents();
+      providers: [FormBuilder, { provide: Router, useValue: router }]
+    })
+      .overrideComponent(UserDetailComponent, {
+        set: {
+          providers: [{ provide: UserService, useValue: userService }]
+        }
+      })
+      .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormComponent);
+    fixture = TestBed.createComponent(UserDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -85,18 +91,17 @@ describe('FormComponent', () => {
       gender: Gender.Male,
       activated: true
     });
-    formService.create.mockImplementation(() => {
-      console.log('mock biatch');
-      return of({
+    userService.create.mockReturnValue(
+      of({
         _id: 1,
         name: 'João Gonçalves',
         gender: Gender.Male,
         activated: true
-      });
-    });
+      })
+    );
 
     component.save();
-    expect(formService.create).toBeCalled();
-    expect(form.value._id).toEqual(1);
+    expect(userService.create).toBeCalled();
+    expect(router.navigate).toBeCalledWith(['../list']);
   });
 });

@@ -1,7 +1,7 @@
 import { Gender } from './gender.enum';
 import { FormControl } from '@angular/forms';
 
-export class FormValidators {
+export class UserValidators {
   static gender(control: FormControl): { [key: string]: string } | null {
     if (!control.value) {
       return null;

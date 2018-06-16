@@ -3,15 +3,11 @@ import { Routes } from '@angular/router';
 export const AppRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'form',
+    redirectTo: 'admin/user/list',
     pathMatch: 'full'
   },
   {
-    path: 'form',
-    loadChildren: './form/form.module#FormModule'
-  },
-  {
-    path: 'list',
-    loadChildren: './list/list.module#ListModule'
-  },
+    path: 'admin',
+    loadChildren: './admin/admin.module#AdminModule'
+  }
 ];

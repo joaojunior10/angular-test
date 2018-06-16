@@ -1,17 +1,17 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { FormService } from './form.service';
+import { UserService } from './user.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-describe('FormService', () => {
+describe('UserService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [FormService]
+      providers: [UserService]
     });
   });
 
-  it('should be created', inject([FormService], (service: FormService) => {
+  it('should be created', inject([UserService], (service: UserService) => {
     expect(service).toBeTruthy();
   }));
 });

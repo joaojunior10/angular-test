@@ -13,13 +13,13 @@ describe('angular-test App', () => {
     expect(page.getParagraphText()).toEqual('Angular Tests');
   });
 
-  it('navigate to "" redirects you to /form', () => {
+  it('navigate to "" redirects you to /admin/user/list', () => {
     const expectedCondititons = protractor.ExpectedConditions;
     page.navigateTo();
     browser.wait(
-      expectedCondititons.urlContains(browser.baseUrl + '/form'),
+      expectedCondititons.urlContains(browser.baseUrl + '/admin/user/list'),
       1000
     );
-    expect(browser.getCurrentUrl()).toBe(browser.baseUrl + '/form');
+    expect(browser.getCurrentUrl()).toBe(browser.baseUrl + '/admin/user/list');
   });
 });

@@ -1,8 +1,8 @@
 import { browser, element, by } from 'protractor';
 
-export class FormPage {
+export class UserPage {
   navigateTo() {
-    return browser.get('/form');
+    return browser.get('/admin/user/detail');
   }
 
   save() {

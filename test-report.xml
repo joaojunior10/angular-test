@@ -1,27 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="/Users/Joao/Programs/angular-test/src/app/form/pages/form/form.component.spec.ts">
-    <testCase name="FormComponent should create" duration="175"/>
-    <testCase name="FormComponent name should be required" duration="64"/>
-    <testCase name="FormComponent gender should be required" duration="69"/>
-    <testCase name="FormComponent gender should be of enum Gender" duration="47"/>
-    <testCase name="FormComponent activated should be required" duration="50"/>
-    <testCase name="FormComponent should create the from" duration="64"/>
+  <file path="/Users/Joao/Programs/angular-test/src/app/admin/user/pages/user-detail/user-detail.component.spec.ts">
+    <testCase name="UserDetailComponent should create" duration="125"/>
+    <testCase name="UserDetailComponent name should be required" duration="116"/>
+    <testCase name="UserDetailComponent gender should be required" duration="219"/>
+    <testCase name="UserDetailComponent gender should be of enum Gender" duration="52"/>
+    <testCase name="UserDetailComponent activated should be required" duration="54"/>
+    <testCase name="UserDetailComponent should create the from" duration="55"/>
   </file>
-  <file path="/Users/Joao/Programs/angular-test/src/app/list/pages/list/list.component.spec.ts">
-    <testCase name="ListComponent should create" duration="57"/>
+  <file path="/Users/Joao/Programs/angular-test/src/app/admin/user/services/user.service.spec.ts">
+    <testCase name="UserService should be created" duration="26"/>
   </file>
-  <file path="/Users/Joao/Programs/angular-test/src/app/app.component.spec.ts">
-    <testCase name="AppComponent should create the app" duration="64"/>
-  </file>
-  <file path="/Users/Joao/Programs/angular-test/src/app/form/service/form.service.spec.ts">
-    <testCase name="FormService should be created" duration="32"/>
-  </file>
-  <file path="/Users/Joao/Programs/angular-test/src/app/shared/basic-validators.spec.ts">
-    <testCase name="BasicValidators required should return null if the control is not empty" duration="2"/>
-    <testCase name="BasicValidators required should return null if the control is false" duration="1"/>
-    <testCase name="BasicValidators required should return null if the control is 0" duration="1"/>
-    <testCase name="BasicValidators required should return invalid if the control is null" duration="0"/>
-    <testCase name="BasicValidators required should return invalid if the control is empty" duration="1"/>
+  <file path="/Users/Joao/Programs/angular-test/src/app/admin/user/pages/user-list/user-list.component.spec.ts">
+    <testCase name="UserListComponent should create" duration="50"/>
   </file>
 </testExecutions>

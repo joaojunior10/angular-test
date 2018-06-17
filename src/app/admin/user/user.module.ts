@@ -7,6 +7,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { UserDetailComponent } from './pages/user-detail/user-detail.component';
 import { UserListComponent } from './pages/user-list/user-list.component';
+import { TreeTableModule } from 'primeng/treetable';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { UserListComponent } from './pages/user-list/user-list.component';
     RouterModule.forChild(UserRoutes),
     DropdownModule,
     InputTextModule,
-    CheckboxModule
+    CheckboxModule,
+    TreeTableModule
   ],
   declarations: [UserListComponent, UserDetailComponent]
 })

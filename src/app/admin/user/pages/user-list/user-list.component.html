@@ -1,3 +1,19 @@
-<p>
-  user-list works!
-</p>
+<p-treeTable [value]="files" [scrollable]="true">
+  <ng-template pTemplate="header">
+      <tr>
+          <th width="300px">Name</th>
+          <th width="200px">Size</th>
+          <th width="100px">Type</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+      <tr>
+          <td width="300px">
+              <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
+              {{rowData.name}}
+          </td>
+          <td width="200px">{{rowData.size}}</td>
+          <td width="100px">{{rowData.type}}</td>
+      </tr>
+  </ng-template>
+</p-treeTable>

@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="/Users/Joao/Programs/angular-test/src/app/admin/user/pages/user-detail/user-detail.component.spec.ts">
-    <testCase name="UserDetailComponent should create" duration="125"/>
-    <testCase name="UserDetailComponent name should be required" duration="116"/>
-    <testCase name="UserDetailComponent gender should be required" duration="219"/>
-    <testCase name="UserDetailComponent gender should be of enum Gender" duration="52"/>
-    <testCase name="UserDetailComponent activated should be required" duration="54"/>
-    <testCase name="UserDetailComponent should create the from" duration="55"/>
-  </file>
-  <file path="/Users/Joao/Programs/angular-test/src/app/admin/user/services/user.service.spec.ts">
-    <testCase name="UserService should be created" duration="26"/>
-  </file>
   <file path="/Users/Joao/Programs/angular-test/src/app/admin/user/pages/user-list/user-list.component.spec.ts">
-    <testCase name="UserListComponent should create" duration="50"/>
+    <testCase name="UserListComponent should create" duration="46"/>
   </file>
 </testExecutions>

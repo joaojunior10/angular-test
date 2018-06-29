@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const AppRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'admin/user/list',
+    redirectTo: 'admin/user',
     pathMatch: 'full'
   },
   {

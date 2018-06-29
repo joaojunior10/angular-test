@@ -43,7 +43,7 @@ export class UserDetailComponent extends BaseForm implements OnInit {
   private create(user: any) {
     this.userService.create(user).subscribe(res => {
       console.log(res);
-      this.router.navigate(['../list']);
+      this.router.navigate(['../']);
     }, err => {
       console.log(err);
     });

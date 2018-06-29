@@ -4,15 +4,15 @@ import { Routes } from '@angular/router';
 
 export const UserRoutes: Routes = [
   {
-    path: 'list',
+    path: '',
     component: UserListComponent
   },
   {
-    path: 'detail',
+    path: 'create',
     component: UserDetailComponent
   },
   {
-    path: 'detail/:id',
+    path: 'edit/:id',
     component: UserDetailComponent
   }
 ];

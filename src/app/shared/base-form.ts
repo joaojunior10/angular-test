@@ -1,22 +1,21 @@
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { of, Observable } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 import { BasePage } from './base-page';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { AfterViewInit, ViewChildren, QueryList } from '@angular/core';
+import { ErrorComponent } from '@shared/error/error.component';
 
-export class BaseForm extends BasePage {
+export class BaseForm extends BasePage implements AfterViewInit {
   form: FormGroup;
+  @ViewChildren(ErrorComponent) errors: QueryList<ErrorComponent>;
 
   constructor(protected formBuilder: FormBuilder) {
     super();
   }
 
-  getError(name) {
-    const formControl = this.form.get(name);
-    if (
-      formControl &&
-      formControl.invalid &&
-      (formControl.dirty || formControl.touched)
-    ) {
-      return formControl.errors.invalid;
+  ngAfterViewInit() {
+    if (this.errors) {
+      this.errors.forEach(error => error.form = this.form);
     }
-    return null;
   }
 }

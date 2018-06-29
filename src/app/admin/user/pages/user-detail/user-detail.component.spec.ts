@@ -3,11 +3,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { createSpyObj, router } from '@testing/util';
-import { of } from 'rxjs/observable/of';
 import { UserService } from '../../services/user.service';
 import { Gender } from '../../shared/gender.enum';
 import { UserDetailComponent } from './user-detail.component';
 import { Router } from '@angular/router';
+import { of } from 'rxjs';
 
 describe('UserDetailComponent', () => {
   let component: UserDetailComponent;
@@ -75,6 +75,11 @@ describe('UserDetailComponent', () => {
     expect(activated.valid).toBeTruthy();
     activated.setValue(true);
     expect(activated.valid).toBeTruthy();
+    activated.reset(false);
+    expect(activated.value).toEqual(false);
+    activated.disable();
+    expect(activated.value).toEqual(false);
+
   });
 
   it('should create the from', () => {
@@ -102,6 +107,6 @@ describe('UserDetailComponent', () => {
 
     component.save();
     expect(userService.create).toBeCalled();
-    expect(router.navigate).toBeCalledWith(['../list']);
+    expect(router.navigate).toBeCalledWith(['../']);
   });
 });
